@@ -6,6 +6,9 @@ module WaldorfAndStatler
 
    end
 def self.review(movie)
+ # puts movie.inspect
+
+  #<Movie:0x0000000002bd44d8 @title="Goonies", @rank=10, @snack_carbs={}>
 	number_rolled = roll_die
        case number_rolled
      # if number_rolled < 3

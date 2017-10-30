@@ -8,7 +8,8 @@ class Movie
   def initialize(title, rank=0)
   	@title = title.capitalize       #<Movie:0x0000000002becda8 @title="Goonies", @rank=10, @snack_carbs={}>
   	@rank = rank
-    @snack_carbs = Hash.new(0)
+    @snack_carbs = Hash.new(0)  
+
   end
 
   def carbs_consumed
@@ -17,10 +18,16 @@ class Movie
 
 
   def ate_snack(snack)
+
+
+      #<struct Snack name=:pretzel, carbs=10>
     @snack_carbs[snack.name] += snack.carbs
+
 
      puts "#{@title} led to #{snack.carbs} #{snack.name} carbs being consumed"
     puts "#{@title}'s snacks: #{@snack_carbs} "
+
+    #raise @snack_carbs.inspect
 
   end
 

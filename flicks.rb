@@ -120,25 +120,27 @@ end
 #require_relative 'movie'
 require_relative 'playlist'
 
-movie1 = Movie.new("goonies", 10)       #<Movie:0x0000000002becda8 @title="Goonies", @rank=10, @snack_carbs={}>
+movie1 = Movie.new("goonies", 10)     #....  #<Movie:0x0000000002becda8 @title="Goonies", @rank=10, @snack_carbs={}>
 
-movie2 = Movie.new("ghostbusters", 9)   #<Movie:0x0000000002becc40 @title="Ghostbusters", @rank=9, @snack_carbs={}>
+movie2 = Movie.new("ghostbusters", 9) #....  #<Movie:0x0000000002becc40 @title="Ghostbusters", @rank=9, @snack_carbs={}>
  
-movie3 = Movie.new("golddfinger")       #<Movie:0x0000000002bdcb10 @title="Golddfinger", @rank=0, @snack_carbs={}>
+movie3 = Movie.new("golddfinger")     #....  #<Movie:0x0000000002bdcb10 @title="Golddfinger", @rank=0, @snack_carbs={}>
 
-movies = [movie1, movie2, movie3]
+movies = [movie1, movie2, movie3]     #.....  [#<Movie:0x0000000002bdc4f8 @title="Goonies", @rank=10, @snack_carbs={}>, #<Movie:0x0000000002bdc408 @title="Ghostbusters", @rank=9, @snack_carbs={}>, #<Movie:0x0000000002bdc318 @title="Golddfinger", @rank=0, @snack_carbs={}>] 
 
-
-
-#raise movies.inspect
  
 #puts movies  
-playlist1 = Playlist.new("kermit")
+playlist1 = Playlist.new("kermit")    #.....   #<Playlist:0x0000000002c2c2a0 @name="kermit", @movies=[]>
+
+playlist1.add_movie(movie1) 
+                                      #......  #<Playlist:0x0000000002c1c210 @name="kermit", @movies=[#<Movie:0x0000000002c1c558 @title="Goonies", @rank=10, @snack_carbs={}>]> 
+
+playlist1.add_movie(movie2)            #<Playlist:0x0000000002c5c158 @name="kermit", @movies=[#<Movie:0x0000000002c5c2e8 @title="Goonies", @rank=10, @snack_carbs={}>, #<Movie:0x0000000002c5c1f8 @title="Ghostbusters", @rank=9, @snack_carbs={}>]>
+
+                                     
+playlist1.add_movie(movie3)           #<Playlist:0x0000000002ecd568 @name="kermit", @movies=[#<Movie:0x0000000002ece1e8 @title="Goonies", @rank=10, @snack_carbs={}>, #<Movie:0x0000000002ecdcc0 @title="Ghostbusters", @rank=9, @snack_carbs={}>, #<Movie:0x0000000002ecd9c8 @title="Golddfinger", @rank=0, @snack_carbs={}>]>
 
 
-playlist1.add_movie(movie1)
-playlist1.add_movie(movie2)
-playlist1.add_movie(movie3)
 
 
 
