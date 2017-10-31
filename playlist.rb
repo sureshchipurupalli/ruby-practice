@@ -64,20 +64,27 @@ class Playlist
   
 
   def print_stats
-   puts "\n #{@name}'s stats:"
-   puts "#{total_carbs_consumed} total carbs consumed"
+   puts "\n #{@name}'s stats:"                            #kermit's stats:
+   puts "#{total_carbs_consumed} total carbs consumed"    # 125 total carbs consumed
 
    @movies.sort.each do |movie|
-   puts "\n #{movie.title}'s snack totla:"
-   puts "#{movie.carbs_consumed} grand total carbs"
+   puts "\n #{movie.title}'s snack total:"                # Ghostbusters's snack totla:                                                     # 45 grand total carbs
+   movie.each_snack do |snack|
+    puts "#{snack.carbs} total #{snack.name} carbs"
+   end
+   puts "#{movie.carbs_consumed} grand total carbs"       # 45 grand total carbs
    end
   hits,flops = @movies.partition {|movie| movie.hit? }
+
+ # puts hits.inspect   #[#<Movie:0x0000000002bd4190 @title="Goonies", @rank=10, @snack_carbs={:candy=>30, :popcorn=>20}>]
+ # puts flops.inspect  #[#<Movie:0x0000000002c6d700 @title="Ghostbusters", @rank=9, @snack_carbs={:candy=>15, :popcorn=>20, :nachos=>40}>, #<Movie:0x0000000002c6dc50 @title="Golddfinger", @rank=-1, @snack_carbs={:pretzel=>10, :nachos=>80}>]
   puts "\nHits:"
-  puts hits.sort
+  puts hits.sort      # Goonies has a rank of 10(hit)
 
   puts "\n flops:" 
 
-  puts flops.sort
+  puts flops.sort     #Ghostbusters has a rank of 9(flop)
+                      #Golddfinger has a rank of -1(flop)
 
    
   

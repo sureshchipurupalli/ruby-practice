@@ -146,10 +146,33 @@ playlist1.add_movie(movie3)           #<Playlist:0x0000000002ecd568 @name="kermi
 
 
 
-playlist1.play(3)
+#playlist1.play(3)
+#playlist1.print_stats
+loop do
+puts "how many viewings?('quit' to exit)"
+answer = gets.chomp.downcase
+
+case answer
+
+when /^\d+$/
+
+  playlist1.play(answer.to_i)
+
+
+when 'quit', 'exit'
 playlist1.print_stats
+break
+else
+  puts "please enter a number or 'quit'"
+end
 
 
+
+
+end
+#playlist1.print_stats
+
+=begin
 
 puts ("\n new playlist")
 
@@ -161,3 +184,4 @@ movie4 = Movie.new("gremlins", 15)
 playlist2.add_movie(movie4)
 playlist2.play(3)
 
+=end

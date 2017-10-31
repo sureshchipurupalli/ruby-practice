@@ -12,6 +12,19 @@ class Movie
 
   end
 
+
+  def each_snack
+   # raise @snack_carbs.inspect  #  {:nachos=>40, :soda=>5, :pretzel=>10}
+
+    @snack_carbs.each do|name,carbs|
+
+      snack = Snack.new(name,carbs)
+     # raise snack.inspect
+      yield(snack)
+
+    end
+  end
+
   def carbs_consumed
    @snack_carbs.values.reduce(0,:+)
   end
@@ -27,8 +40,8 @@ class Movie
      puts "#{@title} led to #{snack.carbs} #{snack.name} carbs being consumed"
     puts "#{@title}'s snacks: #{@snack_carbs} "
 
-    #raise @snack_carbs.inspect
-
+   # raise @snack_carbs.inspect   # {:soda=>5}
+   #  puts @snack_carbs.inspect   # {:pretzel=>10, :popcorn=>20, :soda=>5}
   end
 
  def normalized_rank
